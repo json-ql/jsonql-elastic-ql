@@ -31,7 +31,7 @@ public class EQLMatchQuery extends EQLQuery {
 		return (EQLMatchQuery) super.withQuery(query);
 	}
 
-	public EQLMatchQuery of(String query) {
+	public static EQLMatchQuery of(String query) {
 		return new EQLMatchQuery().withQuery(query);
 	}
 	

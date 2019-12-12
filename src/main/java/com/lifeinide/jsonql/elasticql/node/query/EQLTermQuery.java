@@ -8,7 +8,7 @@ import com.lifeinide.jsonql.elasticql.node.component.EQLTermComponent;
  *
  * @author Lukasz Frankowski
  */
-public class EQLTermValue<V> extends EQLValue<V> {
+public class EQLTermQuery<V> extends EQLValue<V> {
 
 	@SerializedName("boost")
 	protected double boost = 1.0;
@@ -21,18 +21,18 @@ public class EQLTermValue<V> extends EQLValue<V> {
 		this.boost = boost;
 	}
 
-	public EQLTermValue<V> withBoost(double boost) {
+	public EQLTermQuery<V> withBoost(double boost) {
 		setBoost(boost);
 		return this;
 	}
 
 	@Override
-	public EQLTermValue<V> withValue(V value) {
-		return (EQLTermValue<V>) super.withValue(value);
+	public EQLTermQuery<V> withValue(V value) {
+		return (EQLTermQuery<V>) super.withValue(value);
 	}
 
-	public static <V> EQLTermValue<V> of(V value) {
-		return new EQLTermValue<V>().withValue(value);
+	public static <V> EQLTermQuery<V> of(V value) {
+		return new EQLTermQuery<V>().withValue(value);
 	}
 	
 }
