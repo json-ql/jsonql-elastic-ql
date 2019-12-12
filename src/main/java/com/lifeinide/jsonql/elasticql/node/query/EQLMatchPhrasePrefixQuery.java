@@ -30,4 +30,8 @@ public class EQLMatchPhrasePrefixQuery extends EQLQuery {
 	public EQLMatchPhrasePrefixQuery withQuery(String query) {
 		return (EQLMatchPhrasePrefixQuery) super.withQuery(query);
 	}
+
+	public static EQLMatchPhrasePrefixQuery of(String query) {
+		return new EQLMatchPhrasePrefixQuery().withQuery(query);
+	}
 }

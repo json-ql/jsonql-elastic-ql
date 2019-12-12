@@ -15,4 +15,14 @@ public class EQLField<E> extends EQLFields<E> {
 		return result;
 	}
 
+	@Override
+	public EQLField<E> withField(String key, E value) {
+		return (EQLField<E>) super.withField(key, value);
+	}
+
+	public static <E> EQLField<E> of(String field, E value) {
+		return new EQLField<E>().withField(field, value);
+	}
+
+
 }

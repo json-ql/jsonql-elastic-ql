@@ -42,4 +42,8 @@ public class EQLRoot extends EQLNode {
 		return this;
 	}
 
+	public static EQLRoot of() {
+		return new EQLRoot();
+	}
+
 }

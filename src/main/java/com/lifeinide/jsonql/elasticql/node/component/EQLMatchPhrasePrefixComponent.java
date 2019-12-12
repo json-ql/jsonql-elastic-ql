@@ -27,4 +27,8 @@ public class EQLMatchPhrasePrefixComponent extends EQLComponent {
 		return this;
 	}
 	
+	public static EQLMatchPhrasePrefixComponent of(String field, EQLMatchPhrasePrefixQuery matchPhrasePrefix) {
+		return new EQLMatchPhrasePrefixComponent().withMatchPhrasePrefix(field, matchPhrasePrefix);
+	}
+
 }

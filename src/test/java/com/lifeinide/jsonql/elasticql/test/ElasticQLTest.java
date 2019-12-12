@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Lukasz Frankowski
  */
-public class GsonEQLTest {
+public class ElasticQLTest {
 
 	public static final String FIELD_TEXT = "text";
 	public static final String FIELD_ID = "textid";
@@ -25,17 +25,15 @@ public class GsonEQLTest {
 
 	@Test
 	public void testComplexEql() {
-		EQLRoot root = new EQLRoot()
-			.withQuery(new EQLBoolComponent().withBool(new EQLBool()
-				.withShould(new EQLMatchComponent().withMatch(FIELD_TEXT, new EQLMatchQuery().withQuery("middle")))
-			    .withShould(new EQLMatchPhrasePrefixComponent().withMatchPhrasePrefix(FIELD_ID, new EQLMatchPhrasePrefixQuery().withQuery("phrase-a")))
-				.withFilter(new EQLBoolComponent().withBool(new EQLBool()
-					.withShould(new EQLTermComponent().withTerm("enumVal", new EQLTermValue<>().withValue("C")))
-					.withShould(new EQLTermComponent().withTerm("enumVal", new EQLTermValue<>().withValue("A")))))
-				.withFilter(new EQLTermComponent().withTerm("longVal", new EQLTermValue<>().withValue(3L)))))
-			.withHighlight(new EQLHighlight()
-				.withField(FIELD_TEXT)
-				.withField(FIELD_ID));
+		EQLRoot root = EQLRoot.of()
+			.withQuery(EQLBoolComponent.of(EQLBool.of()
+				.withShould(EQLMatchComponent.of(FIELD_TEXT, new EQLMatchQuery().withQuery("middle")))
+			    .withShould(EQLMatchPhrasePrefixComponent.of(FIELD_ID, new EQLMatchPhrasePrefixQuery().withQuery("phrase-a")))
+				.withFilter(EQLBoolComponent.of(new EQLBool()
+					.withShould(EQLTermComponent.of("enumVal", new EQLTermValue<>().withValue("C")))
+					.withShould(EQLTermComponent.of("enumVal", new EQLTermValue<>().withValue("A")))))
+				.withFilter(EQLTermComponent.of("longVal", new EQLTermValue<>().withValue(3L)))))
+			.withHighlight(EQLHighlight.of(FIELD_TEXT, FIELD_ID));
 
 		System.out.println(eqlBuilder.toJsonString(root));
 		// TODOLF assertions instead of println

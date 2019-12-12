@@ -27,4 +27,8 @@ public class EQLTermComponent extends EQLComponent {
 		return this;
 	}
 
+	public static EQLTermComponent of(String field, EQLTermValue term) {
+		return new EQLTermComponent().withTerm(field, term);
+	}
+
 }

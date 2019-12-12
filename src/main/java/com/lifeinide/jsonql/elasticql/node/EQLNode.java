@@ -6,4 +6,5 @@ package com.lifeinide.jsonql.elasticql.node;
  * @author Lukasz Frankowski
  */
 public abstract class EQLNode {
+
 }

@@ -23,8 +23,12 @@ public class EQLMatchComponent extends EQLComponent {
 	}
 
 	public EQLMatchComponent withMatch(String field, EQLMatchQuery match) {
-		getMatch().withField(field, match);
+		getMatch().put(field, match);
 		return this;
+	}
+
+	public static EQLMatchComponent of(String field, EQLMatchQuery match) {
+		return new EQLMatchComponent().withMatch(field, match);
 	}
 
 }

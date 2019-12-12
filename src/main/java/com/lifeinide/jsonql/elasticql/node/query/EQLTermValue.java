@@ -30,4 +30,9 @@ public class EQLTermValue<V> extends EQLValue<V> {
 	public EQLTermValue<V> withValue(V value) {
 		return (EQLTermValue<V>) super.withValue(value);
 	}
+
+	public static <V> EQLTermValue<V> of(V value) {
+		return new EQLTermValue<V>().withValue(value);
+	}
+	
 }

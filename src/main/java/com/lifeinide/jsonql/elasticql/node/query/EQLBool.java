@@ -75,4 +75,8 @@ public class EQLBool {
 		return this;
 	}
 
+	public static EQLBool of() {
+		return new EQLBool();
+	}
+
 }

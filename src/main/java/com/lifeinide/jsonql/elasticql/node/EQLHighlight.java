@@ -2,6 +2,8 @@ package com.lifeinide.jsonql.elasticql.node;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Arrays;
+
 /**
  * Highlight component of {@link EQLRoot} query.
  *
@@ -21,8 +23,14 @@ public class EQLHighlight extends EQLNode {
 	}
 
 	public EQLHighlight withField(String field) {
-		getFields().put(field, new EQLEmptyNode());
+		getFields().put(field, EQLEmptyNode.of());
 		return this;
+	}
+
+	public static EQLHighlight of(String ... field) {
+		EQLHighlight highlight = new EQLHighlight();
+		Arrays.stream(field).forEach(highlight::withField);
+		return highlight;
 	}
 	
 }

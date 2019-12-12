@@ -2,7 +2,10 @@
 
 ElasticSearch JSON query builder using GSON.
 
-ElasticSearch comes with no default JSON query builder for the [low level client](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/master/java-rest-low.html), while the [high level client](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/master/java-rest-high.html) has really heavy dependencies. This lib fills the gap with very simple GSON-based JSON builder for ElasticSearch queries.
+ElasticSearch comes with no default JSON query builder for the [low level client](https://www.elastic.co/guide/en/elasticsearch/client
+/java-rest/master/java-rest-low.html), while the [high level client](https://www.elastic.co/guide/en/elasticsearch/client/java-rest
+/master/java-rest-high.html) has really heavy dependencies. This lib fills the gap with very simple GSON-based JSON builder for
+ ElasticSearch queries with a [fluent interface](src/test/java/com/lifeinide/jsonql/elasticql/test/ElasticQLTest.java).
 
 We currently support only some subset of ElasticSearch Query DSL, but forks and pull requests are welcome :)
 

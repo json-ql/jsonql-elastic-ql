@@ -6,4 +6,9 @@ package com.lifeinide.jsonql.elasticql.node;
  * @author Lukasz Frankowski
  */
 public class EQLEmptyNode extends EQLNode {
+
+	public static EQLEmptyNode of() {
+		return new EQLEmptyNode();
+	}
+
 }

@@ -24,4 +24,8 @@ public class EQLBoolComponent extends EQLComponent {
 		return this;
 	}
 
+	public static EQLBoolComponent of(EQLBool bool) {
+		return new EQLBoolComponent().withBool(bool);
+	}
+
 }

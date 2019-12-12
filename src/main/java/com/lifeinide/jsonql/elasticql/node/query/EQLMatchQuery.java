@@ -30,4 +30,9 @@ public class EQLMatchQuery extends EQLQuery {
 	public EQLMatchQuery withQuery(String query) {
 		return (EQLMatchQuery) super.withQuery(query);
 	}
+
+	public EQLMatchQuery of(String query) {
+		return new EQLMatchQuery().withQuery(query);
+	}
+	
 }
