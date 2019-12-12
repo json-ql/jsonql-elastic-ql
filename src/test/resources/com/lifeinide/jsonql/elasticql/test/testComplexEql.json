@@ -13,7 +13,6 @@
         {
           "match_phrase_prefix": {
             "textid": {
-              "max_expansions": 50,
               "query": "phrase-a"
             }
           }
@@ -26,7 +25,6 @@
               {
                 "term": {
                   "enumVal": {
-                    "boost": 1.0,
                     "value": "C"
                   }
                 }
@@ -34,7 +32,6 @@
               {
                 "term": {
                   "enumVal": {
-                    "boost": 1.0,
                     "value": "A"
                   }
                 }
@@ -43,10 +40,11 @@
           }
         },
         {
-          "term": {
+          "range": {
             "longVal": {
-              "boost": 1.0,
-              "value": 3
+              "gte": 1,
+              "lte": 3,
+              "boost": 1.0
             }
           }
         }

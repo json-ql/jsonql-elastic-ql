@@ -10,18 +10,19 @@ import com.lifeinide.jsonql.elasticql.node.component.EQLTermComponent;
  */
 public class EQLTermQuery<V> extends EQLValue<V> {
 
+	/** Default: 1.0 **/
 	@SerializedName("boost")
-	protected double boost = 1.0;
+	protected Double boost = null;
 
-	public double getBoost() {
+	public Double getBoost() {
 		return boost;
 	}
 
-	public void setBoost(double boost) {
+	public void setBoost(Double boost) {
 		this.boost = boost;
 	}
 
-	public EQLTermQuery<V> withBoost(double boost) {
+	public EQLTermQuery<V> withBoost(Double boost) {
 		setBoost(boost);
 		return this;
 	}

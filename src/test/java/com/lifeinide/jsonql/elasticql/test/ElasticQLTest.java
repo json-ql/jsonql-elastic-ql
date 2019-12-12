@@ -21,12 +21,12 @@ public class ElasticQLTest {
 	public void testComplexEql() {
 		EQLRoot root = EQLRoot.of()
 			.withQuery(EQLBoolComponent.of(EQLBool.of()
-				.withShould(EQLMatchComponent.of(FIELD_TEXT, EQLMatchQuery.of("middle")))
+				.withShould(EQLMatchComponent.of(FIELD_TEXT, EQLMatchQuery.of("middle").withAutoFuzziness()))
 			    .withShould(EQLMatchPhrasePrefixComponent.of(FIELD_ID, EQLMatchPhrasePrefixQuery.of("phrase-a")))
 				.withFilter(EQLBoolComponent.of(EQLBool.of()
 					.withShould(EQLTermComponent.of("enumVal", EQLTermQuery.of("C")))
 					.withShould(EQLTermComponent.of("enumVal", EQLTermQuery.of("A")))))
-				.withFilter(EQLRangeComponent.of("longVal", EQLRangeQuery.of(Long.class).withGte(1L).withLte(3L)))))
+				.withFilter(EQLRangeComponent.of("longVal", EQLRangeQuery.ofGte(1L).withLte(3L)))))
 			.withHighlight(EQLHighlight.of(FIELD_TEXT, FIELD_ID));
 
 		System.out.println(eqlBuilder.toJsonString(root));

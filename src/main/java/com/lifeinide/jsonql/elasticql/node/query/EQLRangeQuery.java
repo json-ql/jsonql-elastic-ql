@@ -12,16 +12,16 @@ import com.lifeinide.jsonql.elasticql.node.component.EQLRangeComponent;
 public class EQLRangeQuery<T> extends EQLNode {
 
 	@SerializedName("gte")
-	protected T gte;
+	protected T gte = null;
 
 	@SerializedName("gt")
-	protected T gt;
+	protected T gt = null;
 
 	@SerializedName("lte")
-	protected T lte;
+	protected T lte = null;
 
 	@SerializedName("lt")
-	protected T lt;
+	protected T lt = null;
 
 	@SerializedName("boost")
 	protected double boost = 1.0;
@@ -91,8 +91,20 @@ public class EQLRangeQuery<T> extends EQLNode {
 		return this;
 	}
 
-	public static <T> EQLRangeQuery<T> of(Class<T> type) {
-		return new EQLRangeQuery<>();
+	public static <T> EQLRangeQuery<T> ofGte(T value) {
+		return new EQLRangeQuery<T>().withGte(value);
+	}
+
+	public static <T> EQLRangeQuery<T> ofGt(T value) {
+		return new EQLRangeQuery<T>().withGt(value);
+	}
+
+	public static <T> EQLRangeQuery<T> ofLte(T value) {
+		return new EQLRangeQuery<T>().withLte(value);
+	}
+
+	public static <T> EQLRangeQuery<T> ofLt(T value) {
+		return new EQLRangeQuery<T>().withLt(value);
 	}
 
 }

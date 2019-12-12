@@ -10,18 +10,19 @@ import com.lifeinide.jsonql.elasticql.node.component.EQLMatchPhrasePrefixCompone
  */
 public class EQLMatchPhrasePrefixQuery extends EQLQuery {
 
+	/** Default: 50 **/
 	@SerializedName("max_expansions")
-	protected int maxExpansions = 50;
+	protected Integer maxExpansions = null;
 
-	public int getMaxExpansions() {
+	public Integer getMaxExpansions() {
 		return maxExpansions;
 	}
 
-	public void setMaxExpansions(int maxExpansions) {
+	public void setMaxExpansions(Integer maxExpansions) {
 		this.maxExpansions = maxExpansions;
 	}
 
-	public EQLMatchPhrasePrefixQuery withMaxExpansions(int maxExpansions) {
+	public EQLMatchPhrasePrefixQuery withMaxExpansions(Integer maxExpansions) {
 		setMaxExpansions(maxExpansions);
 		return this;
 	}

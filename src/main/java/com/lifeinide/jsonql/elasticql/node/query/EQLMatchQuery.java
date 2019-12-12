@@ -10,8 +10,11 @@ import com.lifeinide.jsonql.elasticql.node.component.EQLMatchComponent;
  */
 public class EQLMatchQuery extends EQLQuery {
 
+	public static final String AUTO = "AUTO";
+
+	/** Default: {@link #AUTO} **/
 	@SerializedName("fuzziness")
-	protected String fuzziness = "AUTO";
+	protected String fuzziness = null;
 
 	public String getFuzziness() {
 		return fuzziness;
@@ -24,6 +27,10 @@ public class EQLMatchQuery extends EQLQuery {
 	public EQLMatchQuery withFuzziness(String fuzziness) {
 		setFuzziness(fuzziness);
 		return this;
+	}
+
+	public EQLMatchQuery withAutoFuzziness() {
+		return withFuzziness(AUTO);
 	}
 
 	@Override
