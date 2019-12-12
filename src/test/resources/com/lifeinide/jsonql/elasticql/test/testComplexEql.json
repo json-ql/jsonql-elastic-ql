@@ -1,0 +1,62 @@
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "text": {
+              "fuzziness": "AUTO",
+              "query": "middle"
+            }
+          }
+        },
+        {
+          "match_phrase_prefix": {
+            "textid": {
+              "max_expansions": 50,
+              "query": "phrase-a"
+            }
+          }
+        }
+      ],
+      "filter": [
+        {
+          "bool": {
+            "should": [
+              {
+                "term": {
+                  "enumVal": {
+                    "boost": 1.0,
+                    "value": "C"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "enumVal": {
+                    "boost": 1.0,
+                    "value": "A"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "term": {
+            "longVal": {
+              "boost": 1.0,
+              "value": 3
+            }
+          }
+        }
+      ]
+    }
+  },
+  "highlight": {
+    "fields": {
+      "text": {},
+      "textid": {}
+    }
+  }
+}
