@@ -26,8 +26,8 @@ public class EQLBuilder {
 			.create();
 	}
 
-	public JsonElement toJson(EQLNode root) {
-		return gson.toJsonTree(root);
+	public JsonObject toJson(EQLNode root) {
+		return (JsonObject) gson.toJsonTree(root);
 	}
 
 	public String toJsonString(EQLNode root) {

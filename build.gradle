@@ -77,10 +77,10 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version: property('vSlf4j')
     compile group: 'com.google.code.gson', name: 'gson', version: property('vGson')
 
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: property('vJunit')
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: property('vJunit')
+    testCompile group: 'commons-io', name: 'commons-io', version: property('vCommonsIo')
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: property('vJunit')
     testRuntimeOnly group: 'ch.qos.logback', name: 'logback-classic', version: property('vLogback')
-    testCompile group: 'commons-io', name: 'commons-io', version: property('vCommonsIo')
 }
 
 def installer = install.repositories.mavenInstaller
