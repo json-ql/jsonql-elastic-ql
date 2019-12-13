@@ -5,7 +5,21 @@ ElasticSearch JSON query builder using GSON.
 ElasticSearch comes with no default JSON query builder for the [low level client](https://www.elastic.co/guide/en/elasticsearch/client
 /java-rest/master/java-rest-low.html), while the [high level client](https://www.elastic.co/guide/en/elasticsearch/client/java-rest
 /master/java-rest-high.html) has really heavy dependencies. This lib fills the gap with very simple GSON-based JSON builder for
- ElasticSearch queries with a [fluent interface](src/test/java/com/lifeinide/jsonql/elasticql/test/ElasticQLTest.java).
+ ElasticSearch queries with a fluent interface:
+ 
+```java
+EQLRoot.of()
+    .withQuery(EQLBoolComponent.of(EQLBool.of()
+        .withShould(EQLMatchComponent.of("text", EQLMatchQuery.of("middle").withAutoFuzziness()))
+        .withShould(EQLMatchPhrasePrefixComponent.of("textid", EQLMatchPhrasePrefixQuery.of("phrase-a")))
+        .withFilter(EQLBoolComponent.of(EQLBool.of()
+            .withShould(EQLTermComponent.of("enumVal", EQLTermQuery.of("C")))
+            .withShould(EQLTermComponent.of("enumVal", EQLTermQuery.of("A")))))
+        .withFilter(EQLRangeComponent.of("longVal", EQLRangeQuery.ofGte(1L).withLte(3L)))))
+    .withHighlight(EQLHighlight.of("text", "textid"))
+```  
+ 
+See more examples in [this test](src/test/java/com/lifeinide/jsonql/elasticql/test/ElasticQLTest.java).
 
 We currently support only some subset of ElasticSearch Query DSL, but forks and pull requests are welcome :)
 

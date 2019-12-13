@@ -28,7 +28,7 @@ public class ElasticQLTest {
 
 	protected EQLBuilder eqlBuilder = new EQLBuilder();
 
-	protected static enum TestEnum { A }
+	protected enum TestEnum { A }
 
 	@Test
 	public void testComplexEql() {
