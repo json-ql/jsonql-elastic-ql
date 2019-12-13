@@ -3,9 +3,11 @@ package com.lifeinide.jsonql.elasticql;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
-import com.lifeinide.jsonql.elasticql.node.EQLRoot;
+import com.lifeinide.jsonql.elasticql.node.EQLNode;
 
 /**
+ * Serializes {@link EQLNode}-s into JSON.
+ *
  * @author Lukasz Frankowski
  */
 public class EQLBuilder {
@@ -18,11 +20,11 @@ public class EQLBuilder {
 			.create();
 	}
 
-	public JsonElement toJson(EQLRoot root) {
+	public JsonElement toJson(EQLNode root) {
 		return gson.toJsonTree(root);
 	}
 
-	public String toJsonString(EQLRoot root) {
+	public String toJsonString(EQLNode root) {
 		return gson.toJson(toJson(root));
 	}
 

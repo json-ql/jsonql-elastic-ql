@@ -7,6 +7,5 @@ import com.lifeinide.jsonql.elasticql.node.EQLNode;
  *
  * @author Lukasz Frankowski
  */
-// TODOLF add range component
 public class EQLComponent extends EQLNode {
 }
