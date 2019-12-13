@@ -1,0 +1,9 @@
+{
+  "query": {
+    "term": {
+      "textid": {
+        "value": "phrase-an"
+      }
+    }
+  }
+}

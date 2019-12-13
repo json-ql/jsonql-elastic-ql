@@ -1,0 +1,9 @@
+{
+  "query": {
+    "term": {
+      "decimalVal": {
+        "value": 1.22
+      }
+    }
+  }
+}

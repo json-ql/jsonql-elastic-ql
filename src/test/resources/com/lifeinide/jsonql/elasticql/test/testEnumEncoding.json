@@ -1,0 +1,9 @@
+{
+  "query": {
+    "term": {
+      "enumVal": {
+        "value": "A"
+      }
+    }
+  }
+}
