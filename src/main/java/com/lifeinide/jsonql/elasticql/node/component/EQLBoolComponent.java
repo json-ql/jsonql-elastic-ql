@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.query.EQLBool;
 
 /**
+ * {@code bool} query component.
+ *
  * @author Lukasz Frankowski
  */
 public class EQLBoolComponent extends EQLComponent {

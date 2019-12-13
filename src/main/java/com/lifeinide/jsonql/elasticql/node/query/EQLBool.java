@@ -1,19 +1,21 @@
 package com.lifeinide.jsonql.elasticql.node.query;
 
 import com.google.gson.annotations.SerializedName;
+import com.lifeinide.jsonql.elasticql.node.component.EQLBoolComponent;
 import com.lifeinide.jsonql.elasticql.node.component.EQLComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * {@code bool} query component.
+ * A query for {@link EQLBoolComponent}.
  *
  * @author Lukasz Frankowski
  */
 public class EQLBool {
 
 	@SerializedName("must") protected List<EQLComponent> must;
+	@SerializedName("must_not") protected List<EQLComponent> mustNot;
 	@SerializedName("should") protected List<EQLComponent> should;
 	@SerializedName("filter") protected List<EQLComponent> filter;
 
@@ -41,6 +43,22 @@ public class EQLBool {
 			should = new ArrayList<>();
 
 		return should;
+	}
+
+	public List<EQLComponent> getMustNot() {
+		if (mustNot==null)
+			mustNot = new ArrayList<>();
+
+		return mustNot;
+	}
+
+	public void setMustNot(List<EQLComponent> mustNot) {
+		this.mustNot = mustNot;
+	}
+
+	public EQLBool withMustNot(EQLComponent mustNot) {
+		getMustNot().add(mustNot);
+		return this;
 	}
 
 	public void setShould(List<EQLComponent> should) {
