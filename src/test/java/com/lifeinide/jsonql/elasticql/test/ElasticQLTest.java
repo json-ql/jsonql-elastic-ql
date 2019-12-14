@@ -3,6 +3,7 @@ package com.lifeinide.jsonql.elasticql.test;
 import com.lifeinide.jsonql.elasticql.EQLBuilder;
 import com.lifeinide.jsonql.elasticql.node.EQLHighlight;
 import com.lifeinide.jsonql.elasticql.node.EQLRoot;
+import com.lifeinide.jsonql.elasticql.node.EQLSort;
 import com.lifeinide.jsonql.elasticql.node.component.*;
 import com.lifeinide.jsonql.elasticql.node.query.*;
 import org.apache.commons.io.IOUtils;
@@ -41,6 +42,8 @@ public class ElasticQLTest {
 						.withShould(EQLTermComponent.of("enumVal", EQLTermQuery.of("C")))
 						.withShould(EQLTermComponent.of("enumVal", EQLTermQuery.of("A")))))
 					.withFilter(EQLRangeComponent.of("longVal", EQLRangeQuery.ofGte(1L).withLte(3L)))))
+				.withSort("enumVal", EQLSort.ofAsc())
+				.withSort("longVal", EQLSort.ofDesc())
 				.withHighlight(EQLHighlight.of(FIELD_TEXT, FIELD_ID)),
 			"testComplexEql.json"
 		);

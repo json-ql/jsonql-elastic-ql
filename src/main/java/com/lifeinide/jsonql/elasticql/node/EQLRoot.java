@@ -13,6 +13,9 @@ public class EQLRoot extends EQLNode {
 	@SerializedName("query")
 	protected EQLComponent query;
 
+	@SerializedName("sort")
+	protected EQLFields<EQLSort> sort;
+
 	@SerializedName("highlight")
 	protected EQLHighlight highlight;
 
@@ -26,6 +29,22 @@ public class EQLRoot extends EQLNode {
 
 	public EQLRoot withQuery(EQLComponent query) {
 		setQuery(query);
+		return this;
+	}
+
+	public EQLFields<EQLSort> getSort() {
+		if (sort==null)
+			sort = new EQLFields<>();
+
+		return sort;
+	}
+
+	public void setSort(EQLFields<EQLSort> sort) {
+		this.sort = sort;
+	}
+
+	public EQLRoot withSort(String field, EQLSort sort) {
+		getSort().put(field, sort);
 		return this;
 	}
 

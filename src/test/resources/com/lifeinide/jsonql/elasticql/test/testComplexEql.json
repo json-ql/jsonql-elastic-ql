@@ -51,6 +51,14 @@
       ]
     }
   },
+  "sort": {
+    "enumVal": {
+      "order": "asc"
+    },
+    "longVal": {
+      "order": "desc"
+    }
+  },
   "highlight": {
     "fields": {
       "text": {},
