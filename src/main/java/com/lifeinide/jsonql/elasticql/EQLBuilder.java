@@ -3,6 +3,7 @@ package com.lifeinide.jsonql.elasticql;
 import com.google.gson.*;
 import com.lifeinide.jsonql.elasticql.node.EQLNode;
 
+import javax.annotation.Nonnull;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -26,11 +27,11 @@ public class EQLBuilder {
 			.create();
 	}
 
-	public JsonObject toJson(EQLNode root) {
+	@Nonnull public JsonObject toJson(@Nonnull EQLNode root) {
 		return (JsonObject) gson.toJsonTree(root);
 	}
 
-	public String toJsonString(EQLNode root) {
+	@Nonnull public String toJsonString(@Nonnull EQLNode root) {
 		return gson.toJson(toJson(root));
 	}
 

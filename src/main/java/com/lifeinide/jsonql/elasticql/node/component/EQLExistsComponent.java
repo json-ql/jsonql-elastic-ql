@@ -3,6 +3,8 @@ package com.lifeinide.jsonql.elasticql.node.component;
 import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.query.EQLExistsQuery;
 
+import javax.annotation.Nonnull;
+
 /**
  * {@code exists} query component.
  *
@@ -21,12 +23,12 @@ public class EQLExistsComponent extends EQLComponent {
 		this.exists = exists;
 	}
 
-	public EQLExistsComponent withExists(EQLExistsQuery exists) {
+	@Nonnull public EQLExistsComponent withExists(@Nonnull EQLExistsQuery exists) {
 		setExists(exists);
 		return this;
 	}
 
-	public static EQLExistsComponent of(EQLExistsQuery exists) {
+	@Nonnull public static EQLExistsComponent of(@Nonnull EQLExistsQuery exists) {
 		return new EQLExistsComponent().withExists(exists);
 	}
 

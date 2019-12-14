@@ -3,6 +3,8 @@ package com.lifeinide.jsonql.elasticql.node.query;
 import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.component.EQLTermComponent;
 
+import javax.annotation.Nonnull;
+
 /**
  * A query for {@link EQLTermComponent}.
  *
@@ -22,17 +24,17 @@ public class EQLTermQuery<V> extends EQLValue<V> {
 		this.boost = boost;
 	}
 
-	public EQLTermQuery<V> withBoost(Double boost) {
+	@Nonnull public EQLTermQuery<V> withBoost(@Nonnull Double boost) {
 		setBoost(boost);
 		return this;
 	}
 
 	@Override
-	public EQLTermQuery<V> withValue(V value) {
+	@Nonnull public EQLTermQuery<V> withValue(@Nonnull V value) {
 		return (EQLTermQuery<V>) super.withValue(value);
 	}
 
-	public static <V> EQLTermQuery<V> of(V value) {
+	@Nonnull public static <V> EQLTermQuery<V> of(@Nonnull V value) {
 		return new EQLTermQuery<V>().withValue(value);
 	}
 	

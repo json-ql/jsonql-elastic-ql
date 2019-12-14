@@ -3,6 +3,8 @@ package com.lifeinide.jsonql.elasticql.node.component;
 import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.query.EQLBool;
 
+import javax.annotation.Nonnull;
+
 /**
  * {@code bool} query component.
  *
@@ -21,12 +23,12 @@ public class EQLBoolComponent extends EQLComponent {
 		this.bool = bool;
 	}
 
-	public EQLBoolComponent withBool(EQLBool bool) {
+	@Nonnull public EQLBoolComponent withBool(@Nonnull EQLBool bool) {
 		setBool(bool);
 		return this;
 	}
 
-	public static EQLBoolComponent of(EQLBool bool) {
+	@Nonnull public static EQLBoolComponent of(@Nonnull EQLBool bool) {
 		return new EQLBoolComponent().withBool(bool);
 	}
 

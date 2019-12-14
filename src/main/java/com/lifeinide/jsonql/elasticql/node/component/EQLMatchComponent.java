@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.EQLField;
 import com.lifeinide.jsonql.elasticql.node.query.EQLMatchQuery;
 
+import javax.annotation.Nonnull;
+
 /**
  * {@code match} query component.
  *
@@ -22,12 +24,12 @@ public class EQLMatchComponent extends EQLComponent {
 		this.match = match;
 	}
 
-	public EQLMatchComponent withMatch(String field, EQLMatchQuery match) {
+	@Nonnull public EQLMatchComponent withMatch(@Nonnull String field, @Nonnull EQLMatchQuery match) {
 		getMatch().put(field, match);
 		return this;
 	}
 
-	public static EQLMatchComponent of(String field, EQLMatchQuery match) {
+	@Nonnull public static EQLMatchComponent of(@Nonnull String field, @Nonnull EQLMatchQuery match) {
 		return new EQLMatchComponent().withMatch(field, match);
 	}
 

@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.EQLField;
 import com.lifeinide.jsonql.elasticql.node.query.EQLTermQuery;
 
+import javax.annotation.Nonnull;
+
 /**
  * {@code term} query component.
  *
@@ -22,12 +24,12 @@ public class EQLTermComponent extends EQLComponent {
 		this.term = term;
 	}
 
-	public EQLTermComponent withTerm(String field, EQLTermQuery term) {
+	@Nonnull public EQLTermComponent withTerm(@Nonnull String field, @Nonnull EQLTermQuery term) {
 		getTerm().put(field, term);
 		return this;
 	}
 
-	public static EQLTermComponent of(String field, EQLTermQuery term) {
+	@Nonnull public static EQLTermComponent of(@Nonnull String field, @Nonnull EQLTermQuery term) {
 		return new EQLTermComponent().withTerm(field, term);
 	}
 

@@ -3,6 +3,8 @@ package com.lifeinide.jsonql.elasticql.node.query;
 import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.EQLNode;
 
+import javax.annotation.Nonnull;
+
 /**
  * An object with {@code query} field.
  *
@@ -21,7 +23,7 @@ public class EQLQuery extends EQLNode {
 		this.query = query;
 	}
 
-	public EQLQuery withQuery(String query) {
+	@Nonnull public EQLQuery withQuery(@Nonnull String query) {
 		setQuery(query);
 		return this;
 	}

@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.EQLNode;
 import com.lifeinide.jsonql.elasticql.node.component.EQLRangeComponent;
 
+import javax.annotation.Nonnull;
+
 /**
  * A query for {@link EQLRangeComponent}.
  *
@@ -34,7 +36,7 @@ public class EQLRangeQuery<T> extends EQLNode {
 		this.gte = gte;
 	}
 
-	public EQLRangeQuery<T> withGte(T gte) {
+	@Nonnull public EQLRangeQuery<T> withGte(@Nonnull T gte) {
 		setGte(gte);
 		return this;
 	}
@@ -47,7 +49,7 @@ public class EQLRangeQuery<T> extends EQLNode {
 		this.gt = gt;
 	}
 
-	public EQLRangeQuery<T> withGt(T gt) {
+	@Nonnull public EQLRangeQuery<T> withGt(@Nonnull T gt) {
 		setGt(gt);
 		return this;
 	}
@@ -60,7 +62,7 @@ public class EQLRangeQuery<T> extends EQLNode {
 		this.lte = lte;
 	}
 
-	public EQLRangeQuery<T> withLte(T lte) {
+	@Nonnull public EQLRangeQuery<T> withLte(@Nonnull T lte) {
 		setLte(lte);
 		return this;
 	}
@@ -73,7 +75,7 @@ public class EQLRangeQuery<T> extends EQLNode {
 		this.lt = lt;
 	}
 
-	public EQLRangeQuery<T> withLt(T lt) {
+	@Nonnull public EQLRangeQuery<T> withLt(@Nonnull T lt) {
 		setLt(lt);
 		return this;
 	}
@@ -86,24 +88,24 @@ public class EQLRangeQuery<T> extends EQLNode {
 		this.boost = boost;
 	}
 
-	public EQLRangeQuery<T> withBoost(double boost) {
+	@Nonnull public EQLRangeQuery<T> withBoost(double boost) {
 		setBoost(boost);
 		return this;
 	}
 
-	public static <T> EQLRangeQuery<T> ofGte(T value) {
+	@Nonnull public static <T> EQLRangeQuery<T> ofGte(@Nonnull T value) {
 		return new EQLRangeQuery<T>().withGte(value);
 	}
 
-	public static <T> EQLRangeQuery<T> ofGt(T value) {
+	@Nonnull public static <T> EQLRangeQuery<T> ofGt(@Nonnull T value) {
 		return new EQLRangeQuery<T>().withGt(value);
 	}
 
-	public static <T> EQLRangeQuery<T> ofLte(T value) {
+	@Nonnull public static <T> EQLRangeQuery<T> ofLte(@Nonnull T value) {
 		return new EQLRangeQuery<T>().withLte(value);
 	}
 
-	public static <T> EQLRangeQuery<T> ofLt(T value) {
+	@Nonnull public static <T> EQLRangeQuery<T> ofLt(@Nonnull T value) {
 		return new EQLRangeQuery<T>().withLt(value);
 	}
 

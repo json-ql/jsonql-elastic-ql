@@ -3,6 +3,8 @@ package com.lifeinide.jsonql.elasticql.node;
 import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.component.EQLComponent;
 
+import javax.annotation.Nonnull;
+
 /**
  * Root object for ElasticSearch query.
  *
@@ -27,7 +29,7 @@ public class EQLRoot extends EQLNode {
 		this.query = query;
 	}
 
-	public EQLRoot withQuery(EQLComponent query) {
+	@Nonnull public EQLRoot withQuery(@Nonnull EQLComponent query) {
 		setQuery(query);
 		return this;
 	}
@@ -43,7 +45,7 @@ public class EQLRoot extends EQLNode {
 		this.sort = sort;
 	}
 
-	public EQLRoot withSort(String field, EQLSort sort) {
+	@Nonnull public EQLRoot withSort(@Nonnull String field, @Nonnull EQLSort sort) {
 		getSort().put(field, sort);
 		return this;
 	}
@@ -56,12 +58,12 @@ public class EQLRoot extends EQLNode {
 		this.highlight = highlight;
 	}
 
-	public EQLRoot withHighlight(EQLHighlight highlight) {
+	@Nonnull public EQLRoot withHighlight(@Nonnull EQLHighlight highlight) {
 		setHighlight(highlight);
 		return this;
 	}
 
-	public static EQLRoot of() {
+	@Nonnull public static EQLRoot of() {
 		return new EQLRoot();
 	}
 

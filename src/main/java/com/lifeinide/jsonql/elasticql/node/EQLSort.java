@@ -3,6 +3,8 @@ package com.lifeinide.jsonql.elasticql.node;
 import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.enums.EQLSortOrder;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author Lukasz Frankowski
  */
@@ -19,16 +21,16 @@ public class EQLSort extends EQLNode {
 		this.order = order;
 	}
 
-	public EQLSort withOrder(EQLSortOrder order) {
+	@Nonnull public EQLSort withOrder(@Nonnull EQLSortOrder order) {
 		setOrder(order);
 		return this;
 	}
 
-	public static EQLSort ofAsc() {
+	@Nonnull public static EQLSort ofAsc() {
 		return new EQLSort().withOrder(EQLSortOrder.asc);
 	}
 
-	public static EQLSort ofDesc() {
+	@Nonnull public static EQLSort ofDesc() {
 		return new EQLSort().withOrder(EQLSortOrder.desc);
 	}
 

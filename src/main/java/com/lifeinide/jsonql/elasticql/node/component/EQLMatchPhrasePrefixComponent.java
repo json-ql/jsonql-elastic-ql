@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.EQLField;
 import com.lifeinide.jsonql.elasticql.node.query.EQLMatchPhrasePrefixQuery;
 
+import javax.annotation.Nonnull;
+
 /**
  * {@code match_phrase_prefix} query component.
  *
@@ -22,12 +24,12 @@ public class EQLMatchPhrasePrefixComponent extends EQLComponent {
 		this.matchPhrasePrefix = matchPhrasePrefix;
 	}
 
-	public EQLMatchPhrasePrefixComponent withMatchPhrasePrefix(String field, EQLMatchPhrasePrefixQuery matchPhrasePrefix) {
+	@Nonnull public EQLMatchPhrasePrefixComponent withMatchPhrasePrefix(@Nonnull String field, @Nonnull EQLMatchPhrasePrefixQuery matchPhrasePrefix) {
 		getMatchPhrasePrefix().put(field, matchPhrasePrefix);
 		return this;
 	}
-	
-	public static EQLMatchPhrasePrefixComponent of(String field, EQLMatchPhrasePrefixQuery matchPhrasePrefix) {
+
+	@Nonnull public static EQLMatchPhrasePrefixComponent of(@Nonnull String field, @Nonnull EQLMatchPhrasePrefixQuery matchPhrasePrefix) {
 		return new EQLMatchPhrasePrefixComponent().withMatchPhrasePrefix(field, matchPhrasePrefix);
 	}
 

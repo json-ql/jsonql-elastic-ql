@@ -3,6 +3,8 @@ package com.lifeinide.jsonql.elasticql.node.query;
 import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.component.EQLMatchPhrasePrefixComponent;
 
+import javax.annotation.Nonnull;
+
 /**
  * A query for {@link EQLMatchPhrasePrefixComponent}.
  *
@@ -28,11 +30,11 @@ public class EQLMatchPhrasePrefixQuery extends EQLQuery {
 	}
 
 	@Override
-	public EQLMatchPhrasePrefixQuery withQuery(String query) {
+	@Nonnull public EQLMatchPhrasePrefixQuery withQuery(@Nonnull String query) {
 		return (EQLMatchPhrasePrefixQuery) super.withQuery(query);
 	}
 
-	public static EQLMatchPhrasePrefixQuery of(String query) {
+	@Nonnull public static EQLMatchPhrasePrefixQuery of(@Nonnull String query) {
 		return new EQLMatchPhrasePrefixQuery().withQuery(query);
 	}
 }

@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.EQLNode;
 import com.lifeinide.jsonql.elasticql.node.component.EQLExistsComponent;
 
+import javax.annotation.Nonnull;
+
 /**
  * A query for {@link EQLExistsComponent}.
  *
@@ -22,12 +24,12 @@ public class EQLExistsQuery extends EQLNode {
 		this.field = field;
 	}
 
-	public EQLExistsQuery withField(String field) {
+	@Nonnull public EQLExistsQuery withField(@Nonnull String field) {
 		setField(field);
 		return this;
 	}
 
-	public static EQLExistsQuery of(String field) {
+	@Nonnull public static EQLExistsQuery of(@Nonnull String field) {
 		return new EQLExistsQuery().withField(field);
 	}
 

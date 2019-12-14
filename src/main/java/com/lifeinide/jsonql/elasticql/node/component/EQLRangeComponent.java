@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.EQLField;
 import com.lifeinide.jsonql.elasticql.node.query.EQLRangeQuery;
 
+import javax.annotation.Nonnull;
+
 /**
  * {@code range} query component.
  *
@@ -22,12 +24,12 @@ public class EQLRangeComponent<T> extends EQLComponent {
 		this.range = range;
 	}
 
-	public EQLRangeComponent<T> withRange(String field, EQLRangeQuery<T> range) {
+	@Nonnull public EQLRangeComponent<T> withRange(@Nonnull String field, @Nonnull EQLRangeQuery<T> range) {
 		getRange().withField(field, range);
 		return this;
 	}
 
-	public static <T> EQLRangeComponent<T> of(String field, EQLRangeQuery<T> range) {
+	@Nonnull public static <T> EQLRangeComponent<T> of(@Nonnull String field, @Nonnull EQLRangeQuery<T> range) {
 		return new EQLRangeComponent<T>().withRange(field, range);
 	}
 
