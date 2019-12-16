@@ -14,6 +14,71 @@ EQLRoot.of()
             .withShould(EQLTermComponent.of("enumVal", EQLTermQuery.of("A")))))
         .withFilter(EQLRangeComponent.of("longVal", EQLRangeQuery.ofGte(1L).withLte(3L)))))
     .withHighlight(EQLHighlight.of("text", "textid"))
+```
+
+What gives as a result the following JSON:
+
+```json
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "text": {
+              "fuzziness": "AUTO",
+              "query": "middle"
+            }
+          }
+        },
+        {
+          "match_phrase_prefix": {
+            "textid": {
+              "query": "phrase-a"
+            }
+          }
+        }
+      ],
+      "filter": [
+        {
+          "bool": {
+            "should": [
+              {
+                "term": {
+                  "enumVal": {
+                    "value": "C"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "enumVal": {
+                    "value": "A"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "range": {
+            "longVal": {
+              "gte": 1,
+              "lte": 3,
+              "boost": 1.0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "highlight": {
+    "fields": {
+      "text": {},
+      "textid": {}
+    }
+  }
+}
 ```  
  
 See more examples in [this test](src/test/java/com/lifeinide/jsonql/elasticql/test/ElasticQLTest.java).
