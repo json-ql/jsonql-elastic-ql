@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Nonnull;
 import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * Highlight component of {@link EQLRoot} query.
@@ -33,5 +34,9 @@ public class EQLHighlight extends EQLNode {
 		Arrays.stream(field).forEach(highlight::withField);
 		return highlight;
 	}
-	
+
+	@Nonnull public static EQLHighlight of(@Nonnull Collection<String> fields) {
+		return of(fields.toArray(new String[0]));
+	}
+
 }

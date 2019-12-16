@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import com.lifeinide.jsonql.elasticql.node.component.EQLComponent;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * Root object for ElasticSearch query.
@@ -20,6 +21,12 @@ public class EQLRoot extends EQLNode {
 
 	@SerializedName("highlight")
 	protected EQLHighlight highlight;
+
+	@SerializedName("from")
+	protected Integer from;
+
+	@SerializedName("size")
+	protected Integer size;
 
 	public EQLComponent getQuery() {
 		return query;
@@ -60,6 +67,28 @@ public class EQLRoot extends EQLNode {
 
 	@Nonnull public EQLRoot withHighlight(@Nonnull EQLHighlight highlight) {
 		setHighlight(highlight);
+		return this;
+	}
+
+	public Integer getFrom() {
+		return from;
+	}
+
+	public void setFrom(Integer from) {
+		this.from = from;
+	}
+
+	public Integer getSize() {
+		return size;
+	}
+
+	public void setSize(Integer size) {
+		this.size = size;
+	}
+
+	public EQLRoot withPage(@Nullable Integer from, @Nullable Integer size) {
+		setFrom(from);
+		setSize(size);
 		return this;
 	}
 
