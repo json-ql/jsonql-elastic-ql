@@ -19,12 +19,19 @@ public class EQLBuilder {
 	protected Gson gson;
 
 	public EQLBuilder() {
-		this.gson = new GsonBuilder()
-			.setPrettyPrinting()
+		this(true);
+	}
+
+	public EQLBuilder(boolean pretty) {
+		GsonBuilder builder = new GsonBuilder()
 			.setDateFormat(DATE_FORMAT) // for java.util.Date
 			.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context) ->
-				new JsonPrimitive(src.format(DateTimeFormatter.ofPattern(DATE_FORMAT)))) // for java.time.LocalDate
-			.create();
+				new JsonPrimitive(src.format(DateTimeFormatter.ofPattern(DATE_FORMAT)))); // for java.time.LocalDate
+
+		if (pretty)
+			builder.setPrettyPrinting();
+
+		this.gson = builder.create();
 	}
 
 	@Nonnull public JsonObject toJson(@Nonnull EQLNode root) {
@@ -35,4 +42,7 @@ public class EQLBuilder {
 		return gson.toJson(toJson(root));
 	}
 
+	public Gson getGson() {
+		return gson;
+	}
 }
