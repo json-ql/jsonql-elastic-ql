@@ -85,6 +85,10 @@ public class EQLBool {
 		this.filter = filter;
 	}
 
+	public boolean isEmpty() {
+		return must==null && mustNot==null && should==null && filter==null;
+	}
+
 	/**
 	 * Adds another filter expression with "and" conjunction. To add filters with "or" you need to add new {@link EQLBool} here
 	 * and use its {@link EQLBool#withShould(EQLComponent)} method.
