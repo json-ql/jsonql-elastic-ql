@@ -28,4 +28,8 @@ public class EQLValue<V> extends EQLNode {
 		return this;
 	}
 
+	@Nonnull public static <V> EQLValue<V> of(@Nonnull V value) {
+		return new EQLValue<V>().withValue(value);
+	}
+
 }
