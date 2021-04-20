@@ -1,6 +1,11 @@
 {
   "query": {
     "bool": {
+      "must": [
+        {
+          "match_all": {}
+        }
+      ],
       "should": [
         {
           "match": {

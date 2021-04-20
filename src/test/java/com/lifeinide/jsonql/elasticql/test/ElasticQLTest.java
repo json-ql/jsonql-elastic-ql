@@ -38,6 +38,7 @@ public class ElasticQLTest {
 				.withQuery(EQLBoolComponent.of(EQLBool.of()
 					.withShould(EQLMatchComponent.of(FIELD_TEXT, EQLMatchQuery.of("middle").withAutoFuzziness()))
 					.withShould(EQLMatchPhrasePrefixComponent.of(FIELD_ID, EQLMatchPhrasePrefixQuery.of("phrase-a")))
+					.withMust(EQLMatchAllComponent.of())
 					.withFilter(EQLBoolComponent.of(EQLBool.of()
 						.withShould(EQLTermComponent.of("enumVal", EQLTermQuery.of("C")))
 						.withShould(EQLTermComponent.of("enumVal", EQLTermQuery.of("A")))))
